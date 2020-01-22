@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="form">
+        <input type="text" name="name" id="name">
+        <input type="text" name="github" id="github">
+        <button type="submit">Enviar</button>
+    </form> 
+
+    <script>
+        let form = document.getElementById("form");
+        
+        form.onsubmit = (event)=>{
+            event.preventDefault();
+            let name_form = document.getElementById("name").value;
+            let github_form = document.getElementById("github").value;
+
+            let config = {
+                method: "post",
+                body: JSON.stringify({name:name_form, github:github_form})
+            }
+
+            fetch('http://localhost:8000/api/profissionals', config)
+            .then(function(responsta) {
+                return resposta.json();
+            }).then(function(json) {
+                console.log(json);
+            });
+
+                
+        }
+    </script>
+
+</body>
+</html>
