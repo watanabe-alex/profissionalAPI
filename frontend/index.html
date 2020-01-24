@@ -21,17 +21,21 @@
             event.preventDefault();
             let name_form = document.getElementById("name").value;
             let github_form = document.getElementById("github").value;
-
             let config = {
+                headers:{
+                    "Content-Type":"application/json"
+                },
                 method: "post",
                 body: JSON.stringify({name:name_form, github:github_form})
             }
 
-            fetch('http://localhost:8000/api/profissionals', config)
-            .then(function(responsta) {
+            fetch('http://localhost:8000/api/professionals', config)
+            .then(function(resposta) {
                 return resposta.json();
             }).then(function(json) {
                 console.log(json);
+            }).catch(function(error){
+                console.log(error);
             });
 
                 
