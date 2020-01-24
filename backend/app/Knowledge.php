@@ -11,7 +11,7 @@ class Knowledge extends Model
     //public $timestamps = false; //caso não tenha colocado os timestamps nessa tabela
 
     public function professionals(){
-        return $this.belongsToMany('App\Professional','professionals_knowledges','knowledge_id','professional_id');
+        return $this->belongsToMany('App\Professional','professionals_knowledges','knowledge_id','professional_id');
     }
 
 }
