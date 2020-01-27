@@ -1,3 +1,9 @@
+<!-- 
+TODO: Terminar aula: melhorar formulário para selecionar o id
+TODO: Terminar aula: no caminho show all professionals mostrar os knowledges também
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,12 +28,13 @@
             event.preventDefault();
             let name_form = document.getElementById("name").value;
             let github_form = document.getElementById("github").value;
+            let knowledge_form = document.getElementById("knowledge").value;
             let config = {
                 headers:{
                     "Content-Type":"application/json"
                 },
                 method: "post",
-                body: JSON.stringify({name:name_form, github:github_form})
+                body: JSON.stringify({name:name_form, github:github_form, knowledge:knowledge_form})
             }
 
             fetch('http://localhost:8000/api/professionals', config)
@@ -39,8 +46,9 @@
                 console.log(error);
             });
 
-                
         }
+
+
     </script>
 
 </body>

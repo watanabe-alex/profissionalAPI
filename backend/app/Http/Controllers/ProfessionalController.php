@@ -16,6 +16,7 @@ class ProfessionalController extends Controller
     }
 
     public function createProfessional(Request $request) {
+
         $professional = new Professional();
 
         $professional->name = $request->name;
@@ -25,6 +26,7 @@ class ProfessionalController extends Controller
 
         //adiciona relação do profissional com knowledge na tabela intermediária
         $knowledge = Knowledge::find($request->knowledge);
+
         if ($knowledge) {
             $knowledge->professionals()->attach($professional->id);
            // $professional->knowledges()->attach($knowledge->id); // Assim não funciona porque é o knowledge que pertence ao profissional
